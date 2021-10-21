@@ -125,7 +125,6 @@ $(document).ready(function () {
         $('#modal').load('modals/' + modalToLoad + '.html');
     }
 
-
 });
 
 
