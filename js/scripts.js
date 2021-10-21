@@ -21,9 +21,6 @@ $(document).ready(function () {
                 ClockingChart();
             }
             SetModal(newHref);
-            $.loadScript('js/' + newHref + '.js', function() {
-                console.log("exito!");
-            });
         });
     });
 
@@ -126,16 +123,6 @@ $(document).ready(function () {
     function SetModal(modalToLoad) {
         console.log($('#modal'));
         $('#modal').load('modals/' + modalToLoad + '.html');
-    }
-
-    /* Carga javascript dinamicamente */
-    jQuery.loadScript = function (url, callback) {
-        jQuery.ajax({
-            url: url,
-            dataType: 'script',
-            success: callback,
-            async: true
-        });
     }
 
 });
