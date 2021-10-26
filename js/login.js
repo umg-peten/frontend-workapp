@@ -35,14 +35,17 @@ function Authentication(e){
         }else if(result.status === 200){
             console.log(result.data.token)
             sessionStorage.setItem("token", result.data.token);
-            localStorage.setItem("name", result.data.name);
-            localStorage.setItem("name", result.data.name);
-            localStorage.setItem("name", result.data.name);
-            localStorage.setItem("name", result.data.name);
+            localStorage.setItem("Nombre", result.data.name);
+            localStorage.setItem("Apellido", result.data.lastName);
+            localStorage.setItem("User", result.data.username);
+            location.href = "dashboard.html";
             //redireccionar al dashboard
+            
         }
     })
     .catch(error => {
         console.log("error");
     });
+
+    
 }
