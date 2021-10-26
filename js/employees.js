@@ -1,7 +1,7 @@
 /* OBTENER LA URI Y TOKEN */
 
 uri = "http://workapp.somee.com/api/Employee/";
-token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjIiLCJGdWxsbmFtZSI6Ikp1YW4gQ2FybG9zQ2h1cGFQaWphIiwiVXNlcm5hbWUiOiJhZG1pbiIsIlJvbCI6IkFkbWluIiwibmJmIjoxNjM1MjE1MDc2LCJleHAiOjE2MzU2NDcwNzYsImlhdCI6MTYzNTIxNTA3Nn0.L9x4NatiLZENbesqZHoqF1UYKxnym4_zF1zJ9UoYq_o";
+token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjIiLCJGdWxsbmFtZSI6Ikp1YW4gQ2FybG9zQ2h1cGFQaWphIiwiVXNlcm5hbWUiOiJhZG1pbiIsIlJvbCI6IkFkbWluIiwibmJmIjoxNjM1MjI0MDM1LCJleHAiOjE2MzU2NTYwMzUsImlhdCI6MTYzNTIyNDAzNX0.GXcywFp9xbx63Wm49Ux7F2rEZ1kzFLJta_mlZFtNUPA";
 
 /* OBTENER DEPARTAMENTOS Y PUESTOS */
 
@@ -98,21 +98,26 @@ $("#addEmployee").click(function () {
     data = {
       name: $("#name").val(),
       lastName: $("#lastName").val(),
-      Birthdate: new Date($("#birthDate").val()),
+      Birthdate: $("#birthDate").val(),
       phoneNumber: $("#phoneNumber").val(),
-      sex: $("#sex").val(),
-      idPosition: $("#position").val(),
-      salary: $("#salary").val()
+      dpi: $("#dpi").val(),
+      sex: parseInt($("#sex").val()),
+      idPosition: parseInt($("#position").val()),
+      salary: parseInt($("#salary").val())
     }
-    console.log(data);
+    jsonData = JSON.stringify(data, null, 2);
+
+    console.log(jsonData);
 
     $.ajax({
       url: uri + 'add',
       method: "POST",
-      data: data,
+      data: jsonData,
       headers: {
-        "Authorization": token
+        "Authorization": token,
+        'Content-Type': 'application/json' 
       },
+      dataType: 'json',
       cache: false,
       beforeSend: function () {
         $('.ajax-loader').show();
