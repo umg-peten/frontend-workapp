@@ -26,13 +26,16 @@
 </head>
 
 <body class="text-center">
+    <div class="ajax-loader">
+        <img src="img/ajax-loader.gif" class="img-responsive" />
+    </div>
     <main class="container-fluid vh-100 no-gutters">
         <div class="row">
             <div class="col-2">
                 <div class="d-flex flex-column p-3 flex-shrink-0 text-white bg-dark vh-100">
-                    <a href="#dashboard">     
+                    <a href="#dashboard">
                         <div class="logo">
-                            <img src="img/logo.png" alt="logo" class="logo" ="#dashboard">
+                            <img src="img/logo.png" alt="logo" class="logo"="#dashboard">
                         </div>
                     </a>
                     <h1>WorkApp</h1>
@@ -48,23 +51,28 @@
                                 Empleados</a>
                         </li>
                         <li class="nav-item">
+                            <a href="#departments" class="nav-link text-white text-left" id="departments"><i
+                                    class="fas fa-network-wired"></i> Departamentos</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="#clocking" class="nav-link text-white text-left " id="clocking"><i
                                     class="fas fa-calendar"></i>
                                 Asistencia</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#departments" class="nav-link text-white text-left" id="departments"><i
-                                    class="fas fa-network-wired"></i> Departamentos</a>
+                            <a href="#activities" class="nav-link text-white text-left" id="activities"><i
+                                    class="fas fa-clipboard-check"></i>
+                                Actividades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#payments" class="nav-link text-white text-left " id="clocking"><i
+                                    class="fas fa-money-check"></i>
+                                Planilla</a>
                         </li>
                         <li class="nav-item">
                             <a href="#reports" class="nav-link text-white text-left " id="reports"><i
                                     class="fas fa-chart-bar"></i>
                                 Reportes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#activities" class="nav-link text-white text-left" id="activities"><i
-                                    class="fas fa-clipboard-check"></i>
-                                Actividades</a>
                         </li>
                         <li class="nav-item">
                             <a href="#config" class="nav-link text-white text-left " id="config"><i
@@ -136,7 +144,7 @@
                 </div>
                 <!--- Modal aqui --->
                 <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
-<!--                     <div class="modal-dialog">
+                    <!--                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">Titulo</h5>
@@ -152,7 +160,8 @@
                             </div>
                         </div>
                     </div> -->
-                    
+
+                </div>
                 </div>
             </div>
         </div>

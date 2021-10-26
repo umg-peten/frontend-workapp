@@ -1,3 +1,10 @@
+/***  Dashboard  ***/
+var myVar = setInterval(myTimer, 1000);
+var date = new Date().toLocaleString();
+function myTimer() {
+    $("#datetime").text(date);
+}
+
 $(document).ready(function () {
 
     /* Carga el contenido del dashboard por defecto la primera vez */
@@ -21,19 +28,11 @@ $(document).ready(function () {
                 ClockingChart();
             }
             SetModal(newHref);
-            $.loadScript('js/' + newHref + '.js', function() {
+            $.loadScript('js/' + newHref + '.js', function () {
                 console.log("exito!");
             });
         });
     });
-
-
-    /***  Dashboard  ***/
-    var myVar = setInterval(myTimer, 1000);
-    var date = new Date().toLocaleString();
-    function myTimer() {
-        $("#datetime").text(date);
-    }
 
     /* Graficos*/
     function DashboardCharts() {
