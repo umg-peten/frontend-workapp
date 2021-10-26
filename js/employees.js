@@ -22,11 +22,72 @@ $.ajax({
     for (var i = 0; i < response.data.length; i++) {
       $('#department').append('<option value=' + response.data[i].id + '>' + response.data[i].name + '</option>');
     }
+    $.ajax({
+      url: "http://workapp.somee.com/api/Position/"+$("#department").val(),
+      method: "GET",
+      headers: {
+        "Authorization": token
+      },
+      cache: false,
+      beforeSend: function () {
+        //$('.ajax-loader').show();
+      },
+      complete: function () {
+        //$('.ajax-loader').hide();
+      },
+      success: function (response) {
+        if(response.status == 200) {
+          $('#position').prop("disabled", false);
+        }
+        for (var i = 0; i < response.data.length; i++) {
+          $('#position').append('<option value=' + response.data[i].id + '>' + response.data[i].name + '</option>');
+        }
+      },
+      error: function (response) {
+        if(response.status == 404) {
+          $('#position').html("");
+          $('#position').prop("disabled", true);
+        }
+      }
+    });
   },
   error: function (response) {
     console.log("Reenviar al login");
   }
 });
+
+/* OBTENER PUESTOS BASADOS EN EL DEPARTAMENTO */
+
+$('#department').change(function() {
+  $.ajax({
+    url: "http://workapp.somee.com/api/Position/"+$("#department").val(),
+    method: "GET",
+    headers: {
+      "Authorization": token
+    },
+    cache: false,
+    beforeSend: function () {
+      //$('.ajax-loader').show();
+    },
+    complete: function () {
+      //$('.ajax-loader').hide();
+    },
+    success: function (response) {
+      if(response.status == 200) {
+        $('#position').prop("disabled", false);
+      }
+      for (var i = 0; i < response.data.length; i++) {
+        $('#position').append('<option value=' + response.data[i].id + '>' + response.data[i].name + '</option>');
+      }
+    },
+    error: function (response) {
+      if(response.status == 404) {
+        $('#position').html("");
+        $('#position').prop("disabled", true);
+      }
+    }
+  });
+})
 
 /* OBTENER EMPLEADOS */
 
