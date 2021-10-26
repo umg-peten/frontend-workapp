@@ -127,16 +127,6 @@ $(document).ready(function () {
         $('#modal').load('modals/' + modalToLoad + '.html');
     }
 
-    /* Carga javascript dinamicamente */
-    jQuery.loadScript = function (url, callback) {
-        jQuery.ajax({
-            url: url,
-            dataType: 'script',
-            success: callback,
-            async: true
-        });
-    }
-
 });
 
 
