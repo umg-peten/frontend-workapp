@@ -205,6 +205,11 @@ $("#addEmployee").click(function () {
 });
 
 
+/* ACTUALIZAR EMPLEADOS */
+
+
+
+
 /* VER EMPLEADO */
 function viewEmployee(employeeRow) {
   console.log(employeeRow);
