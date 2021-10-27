@@ -150,6 +150,8 @@ $("#addEmployee").click(function () {
     || !$("#birthDate").val()
     || !$("#dpi").val()
     || !$("#salary").val()
+    || !$("#personalExpenses").val()
+    || !$("#bonification").val()
     || !$("#phoneNumber").val()
     || !$("#sex").val()
     || !$("#department").val()
@@ -164,7 +166,9 @@ $("#addEmployee").click(function () {
       dpi: $("#dpi").val(),
       sex: parseInt($("#sex").val()),
       idPosition: parseInt($("#position").val()),
-      salary: parseInt($("#salary").val())
+      salary: parseInt($("#salary").val()),
+      personalExpenses: parseInt($("#personalExpenses").val()),
+      bonification: parseInt($("#bonification").val())
     }
     jsonData = JSON.stringify(data, null, 2);
 
