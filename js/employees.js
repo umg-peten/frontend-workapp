@@ -1,7 +1,7 @@
 /* OBTENER LA URI Y TOKEN */
 
 uri = "http://workapp.somee.com/api/Employee/";
-token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjIiLCJGdWxsbmFtZSI6Ikp1YW4gQ2FybG9zQ2h1cGFQaWphIiwiVXNlcm5hbWUiOiJhZG1pbiIsIlJvbCI6IkFkbWluIiwibmJmIjoxNjM1MjI0MDM1LCJleHAiOjE2MzU2NTYwMzUsImlhdCI6MTYzNTIyNDAzNX0.GXcywFp9xbx63Wm49Ux7F2rEZ1kzFLJta_mlZFtNUPA";
+let token_sesion = sessionStorage.getItem("token");
 
 /* OBTENER DEPARTAMENTOS Y PUESTOS */
 
@@ -9,7 +9,7 @@ $.ajax({
   url: "http://workapp.somee.com/api/Department/GetAll",
   method: "GET",
   headers: {
-    "Authorization": token
+    "Authorization": `Bearer ${token_sesion}`
   },
   cache: false,
   beforeSend: function () {
@@ -26,7 +26,7 @@ $.ajax({
       url: "http://workapp.somee.com/api/Position/"+$("#department").val(),
       method: "GET",
       headers: {
-        "Authorization": token
+        "Authorization": `Bearer ${token_sesion}`
       },
       cache: false,
       beforeSend: function () {
@@ -63,7 +63,7 @@ $('#department').change(function() {
     url: "http://workapp.somee.com/api/Position/"+$("#department").val(),
     method: "GET",
     headers: {
-      "Authorization": token
+      "Authorization": `Bearer ${token_sesion}`
     },
     cache: false,
     beforeSend: function () {
@@ -95,7 +95,7 @@ $.ajax({
   url: uri,
   method: "GET",
   headers: {
-    "Authorization": token
+    "Authorization": `Bearer ${token_sesion}`
   },
   cache: false,
   beforeSend: function () {
@@ -175,7 +175,7 @@ $("#addEmployee").click(function () {
       method: "POST",
       data: jsonData,
       headers: {
-        "Authorization": token,
+        "Authorization": `Bearer ${token_sesion}`,
         'Content-Type': 'application/json' 
       },
       dataType: 'json',
