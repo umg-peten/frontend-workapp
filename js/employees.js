@@ -1,7 +1,7 @@
 /* OBTENER LA URI Y TOKEN */
 
 uri = "http://workapp.somee.com/api/Employee/";
-let token_sesion = sessionStorage.getItem("token");
+token_sesion = sessionStorage.getItem("token");
 
 /* OBTENER DEPARTAMENTOS Y PUESTOS */
 
